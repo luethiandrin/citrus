@@ -16,22 +16,21 @@
 
 package com.consol.citrus.integration.container;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.util.Collections;
-import java.util.concurrent.Executors;
-
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.integration.common.FileHelper;
 import com.consol.citrus.message.MessageType;
 import com.consol.citrus.testng.spring.TestNGCitrusSpringSupport;
 import com.sun.net.httpserver.HttpServer;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.util.SocketUtils;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.util.Collections;
+import java.util.concurrent.Executors;
 
 import static com.consol.citrus.actions.ReceiveMessageAction.Builder.receive;
 import static com.consol.citrus.actions.SendMessageAction.Builder.send;
@@ -43,7 +42,7 @@ import static com.consol.citrus.container.Wait.Builder.waitFor;
 @Test
 public class WaitJavaIT extends TestNGCitrusSpringSupport {
 
-    private final int serverPort = SocketUtils.findAvailableTcpPort();
+    private final int serverPort = 0;
     private HttpServer server;
 
     @BeforeClass

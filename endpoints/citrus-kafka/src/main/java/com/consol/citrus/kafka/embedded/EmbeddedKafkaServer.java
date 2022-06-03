@@ -16,20 +16,6 @@
 
 package com.consol.citrus.kafka.embedded;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Properties;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import com.consol.citrus.common.InitializingPhase;
 import com.consol.citrus.common.ShutdownPhase;
 import com.consol.citrus.exceptions.CitrusRuntimeException;
@@ -49,8 +35,15 @@ import org.apache.zookeeper.server.ServerCnxnFactory;
 import org.apache.zookeeper.server.ZooKeeperServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.SocketUtils;
 import org.springframework.util.StringUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Embedded Kafka server with reference to embedded Zookeeper cluster for testing purpose. Starts single Zookeeper instance with logs in Java temp directory. Starts single Kafka server
@@ -69,7 +62,7 @@ public class EmbeddedKafkaServer implements InitializingPhase, ShutdownPhase {
     private ServerCnxnFactory serverFactory;
 
     /** Zookeeper server port */
-    private int zookeeperPort = SocketUtils.findAvailableTcpPort();
+    private int zookeeperPort = 0;
 
     /** Kafka server instance */
     private KafkaServer kafkaServer;

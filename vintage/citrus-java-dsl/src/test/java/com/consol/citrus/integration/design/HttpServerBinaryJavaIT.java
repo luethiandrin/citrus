@@ -27,7 +27,6 @@ import com.consol.citrus.message.DefaultMessage;
 import com.consol.citrus.message.MessageType;
 import org.apache.http.entity.ContentType;
 import org.springframework.http.HttpStatus;
-import org.springframework.util.SocketUtils;
 import org.testng.annotations.Test;
 
 import java.nio.charset.Charset;
@@ -39,7 +38,7 @@ import java.nio.charset.Charset;
 public class HttpServerBinaryJavaIT extends TestNGCitrusTestDesigner {
 
     /** Random http server port */
-    private final static int serverPort = SocketUtils.findAvailableTcpPort();
+    private final static int serverPort = 0;
     private static final String MEDIA_TYPE_APPLICATION_CUSTOM = "application/custom";
 
     @CitrusEndpoint(name = "httpClient")

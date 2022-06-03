@@ -16,10 +16,6 @@
 
 package com.consol.citrus.integration.design;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Collections;
-
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.dsl.design.AbstractTestBehavior;
 import com.consol.citrus.dsl.testng.TestNGCitrusTestDesigner;
@@ -31,14 +27,17 @@ import com.consol.citrus.integration.common.FileHelper;
 import com.consol.citrus.message.MessageType;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpMethod;
-import org.springframework.util.SocketUtils;
 import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Collections;
 
 
 @Test
 public class WaitJavaIT extends TestNGCitrusTestDesigner {
 
-    private final int serverPort = SocketUtils.findAvailableTcpPort();
+    private final int serverPort = 0;
 
     private HttpServer httpServer = new HttpServerBuilder()
             .port(serverPort)

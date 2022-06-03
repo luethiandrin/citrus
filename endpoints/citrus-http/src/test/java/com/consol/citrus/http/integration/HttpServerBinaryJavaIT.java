@@ -16,9 +16,6 @@
 
 package com.consol.citrus.http.integration;
 
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-
 import com.consol.citrus.annotations.CitrusEndpoint;
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.http.client.HttpClient;
@@ -30,8 +27,10 @@ import com.consol.citrus.message.MessageType;
 import com.consol.citrus.testng.spring.TestNGCitrusSpringSupport;
 import org.apache.http.entity.ContentType;
 import org.springframework.http.HttpStatus;
-import org.springframework.util.SocketUtils;
 import org.testng.annotations.Test;
+
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import static com.consol.citrus.actions.StartServerAction.Builder.start;
 import static com.consol.citrus.actions.StopServerAction.Builder.stop;
@@ -45,7 +44,7 @@ import static com.consol.citrus.http.actions.HttpActionBuilder.http;
 public class HttpServerBinaryJavaIT extends TestNGCitrusSpringSupport {
 
     /** Random http server port */
-    private final static int serverPort = SocketUtils.findAvailableTcpPort();
+    private final static int serverPort = 0;
     private static final String MEDIA_TYPE_APPLICATION_CUSTOM = "application/custom";
 
     @CitrusEndpoint(name = "httpClient")
